@@ -1,0 +1,62 @@
+@import "_variables";
+
+body{
+    background-color: black;
+    font-family: $font-main;
+}
+
+.logo{
+    background-image: url('/src/assets/logo.png');
+    width: 310px;
+    height: 7rem;
+    background-position: center;
+    background-size: contain;
+    background-color: transparent;
+    background-repeat: no-repeat;
+}
+
+header {
+    width: 100%;
+    /* border: 1px solid green; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.wrapper{
+    width: 100%;
+}
+
+nav.navbar{
+    .navbar-collapse{
+        ul{
+            li{
+                a{
+                    color: white;
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+}
+
+.sw_characters_container{
+    h1{
+        font-family: $font-star-wars;
+        text-align: center;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        color: white;
+        text-transform: uppercase;
+    }
+}
+
+.sw_character{
+    margin-bottom: 2em;
+    .card-text{
+        font-family: $font-main;
+        font-weight: 400;
+        text-align: justify;
+    }
+}
