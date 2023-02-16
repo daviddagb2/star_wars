@@ -9,7 +9,7 @@ import "bootstrap/dist/js/bootstrap.js";
 
 //Styles
 //import "./assets/main.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.css";
 import "./scss/main.scss";
 
 //Create VUE 3 app

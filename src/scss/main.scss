@@ -29,12 +29,15 @@ header {
 }
 
 nav.navbar{
+    background-color: black !important;
     .navbar-collapse{
         ul{
             li{
                 a{
                     color: white;
-                    font-size: 1.4rem;
+                    font-family: $font-oswald;
+                    font-size: 1.2rem;
+                    text-transform: uppercase;
                 }
             }
         }
@@ -42,8 +45,17 @@ nav.navbar{
 }
 
 .sw_characters_container{
+    background-image: url('/src/assets/fog.jpg');
+    background-image: url('/src/assets/grid.jpg');
+    background-repeat: repeat;
+    background-position: top center;
+    min-height: 760px;
+  
+    background-color: black;
+    background-repeat: repeat-x;
+
     h1{
-        font-family: $font-star-wars;
+        font-family: $font-oswald;
         text-align: center;
         padding-top: 2rem;
         padding-bottom: 2rem;
@@ -52,6 +64,7 @@ nav.navbar{
     }
 }
 
+/*
 .sw_character{
     margin-bottom: 2em;
     .card-text{
@@ -59,4 +72,142 @@ nav.navbar{
         font-weight: 400;
         text-align: justify;
     }
+
+    .characterlink {
+        color: black;
+        text-decoration: none;
+        text-align: center;
+    }
+}*/
+
+
+
+
+.sw_character_detail{
+    background-image: url('/src/assets/fog.jpg');
+    background-position: center top;
+    background-repeat: repeat-x;
+    background-size: contain;
+    padding-bottom: 80px;
+    display: flex;
+    justify-content: center;
+
+    .sw_detail_container{
+        width: 100%;
+        max-width: 800px;
+    }
+
+    h2{
+        font-family: $font-oswald;
+        text-align: left;
+        color: white;
+        font-size: 2.5em;
+        text-align: center;
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+
+    .hud_ui{
+        background-image: url('/src/assets/controllerui.gif');
+        min-height: 300px;
+        width: 100%;
+        background-position: right center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .content_info{
+            padding-left: 2em;
+            padding-right: 2em;
+
+            span.tbinfo {
+                min-width: 200px;
+                border: 1px solid rgba(93, 93, 93, 0.5215686275);
+                display: inline-block;
+                text-align: center;
+                width: 100%;
+                background-color: #72727245;
+                font-family: $font-oswald;
+            }
+    }
 }
+
+
+
+.sw_spacebtn {
+    display: flex;
+    width: 100%;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+  
+    a.characterlink {
+      display: flex;
+      align-items: baseline;
+      text-decoration: none;
+      font-size: 12px;
+      color: white;
+    }
+  
+    .btn_container {
+      display: flex;
+      color: white;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .btn {
+      display: flex;
+      gap: 10px;
+      font-family: $font-oswald;
+      text-transform: uppercase;
+      padding: 10px 20px 10px 20px;
+      z-index: 3;
+      background-color: transparent;
+      cursor: pointer;
+      transition: 0.2s ease-out;
+      color: white;
+      font-size: 20px;
+    }
+  
+    .btn_container .svgStroke {
+      position: absolute;
+      z-index: 1;
+      width: 300px;
+    }
+  
+    .btn_container .svgStroke path {
+      stroke-dasharray: 100;
+      // stroke-dashoffset: -800;
+      stroke-width: 2;
+      transition: all 1s ease-in-out;
+    }
+    @keyframes dash {
+      0% {
+        stroke-dasharray: 100;
+        stroke-width: 2;
+      }
+      50% {
+        stroke-width: 4;
+        stroke: paleturquoise;
+        filter: drop-shadow(0px 0px 3px rgb(255, 226, 131))
+          drop-shadow(0px 0px 20px white) drop-shadow(0px 0px 150px white);
+      }
+      100% {
+        stroke-dashoffset: 800;
+        stroke-width: 2;
+      }
+    }
+  
+    .btn:hover + .svgStroke path {
+      cursor: pointer;
+      animation: dash 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+  
+    .btn:hover {
+      font-size: 0.9rem;
+    }
+  }

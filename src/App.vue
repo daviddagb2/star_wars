@@ -1,6 +1,7 @@
 <script setup>
 import { RouterView } from "vue-router";
-import NavMenu from "./components/NavMenu.vue";
+import NavMenu from "./components/Common/NavMenu.vue";
+import FooterComponent from "./components/Common/Footer.vue";
 </script>
 
 <template>
@@ -13,12 +14,15 @@ import NavMenu from "./components/NavMenu.vue";
   </header>
 
   <RouterView />
+
+  <FooterComponent />
 </template>
 
 <style scoped>
 header {
   line-height: 1.5;
   max-height: 100vh;
+  border-bottom: 1px solid #d2d2d2;
 }
 
 .logo {

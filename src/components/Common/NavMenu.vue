@@ -6,7 +6,7 @@ import { RouterLink } from "vue-router";
   <nav
     class="navbar navbar-dark navbar-expand-md bg-dark justify-content-md-center justify-content-start"
   >
-    <a class="navbar-brand d-md-none d-inline" href=""></a>
+    <a class="navbar-brand d-inline" href=""> </a>
     <button
       class="navbar-toggler"
       type="button"
@@ -28,7 +28,7 @@ import { RouterLink } from "vue-router";
           <RouterLink to="/" :class="'nav-link'">Home</RouterLink>
         </li>
         <li class="nav-item">
-          <RouterLink to="/characters" :class="'nav-link'"
+          <RouterLink to="/character" :class="'nav-link'"
             >Characters</RouterLink
           >
         </li>
@@ -49,9 +49,3 @@ import { RouterLink } from "vue-router";
     </div>
   </nav>
 </template>
-
-<style>
-nav.navbar {
-  background-color: red;
-}
-</style>

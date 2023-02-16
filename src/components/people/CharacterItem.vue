@@ -1,43 +1,55 @@
-<script setup>
-//import { RouterLink } from "vue-router";
-</script>
-
 <template>
-  <div class="sw_character">
-    <div class="card" style="width: 18rem">
-      <img
-        v-if="hasImage"
-        class="card-img-top"
-        src="/anakin.webp"
-        alt="Card image cap"
-      />
-      <div class="card-body">
-        <h5 class="card-title">{{ name }}</h5>
-        <p class="card-text">
-          {{ description }}
-        </p>
+  <div class="sw_spacebtn">
+    <RouterLink to="/character/1" :class="'characterlink'">
+      <div class="btn_container">
+        <div class="btn">
+          {{ name }}
+          <span
+            ><svg
+              width="16"
+              height="17"
+              viewBox="0 0 26 27"
+              fill="white"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M22.0607 13.0607C22.6464 12.4749 22.6464 11.5251 22.0607 10.9393L12.5147 1.3934C11.9289 0.807612 10.9792 0.807612 10.3934 1.3934C9.80761 1.97918 9.80761 2.92893 10.3934 3.51472L18.8787 12L10.3934 20.4853C9.80761 21.0711 9.80761 22.0208 10.3934 22.6066C10.9792 23.1924 11.9289 23.1924 12.5147 22.6066L22.0607 13.0607ZM0 13.5H21V10.5H0V13.5Z"
+                fill="white"
+              />
+            </svg>
+          </span>
+        </div>
+        <svg
+          class="svgStroke"
+          width="222"
+          height="85"
+          viewBox="0 0 222 85"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M205 84H21L1 63.4941V18.5765L21 1H205L221 18.5765V63.4941L205 84Z"
+            stroke="white"
+            stroke-width="2"
+          />
+        </svg>
       </div>
-      <div class="notch-contain"></div>
-    </div>
+    </RouterLink>
   </div>
 </template>
 
 <script>
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  // type inference enabled
+export default {
   props: {
     name: String,
     id: [Number, String],
-    description: { type: String, required: true },
     hasImage: { type: Boolean, required: true, default: false },
+    price: { type: Number, required: true },
+    pricer: { type: Number, required: true },
   },
-  mounted() {
-    this.name; // type: string | undefined
-    this.id; // type: number | string | undefined
-    this.description; // type: string
-    this.hasImage;
+  setup() {
+    //return data methods and props
+    return {};
   },
-});
+};
 </script>
