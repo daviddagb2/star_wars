@@ -87,8 +87,9 @@
 
 <script>
 import PreloaderAnim from "../components/utils/PreloaderAnim.vue";
-import { onMounted, ref, reactive } from "vue";
+import { onMounted, reactive } from "vue";
 import axios from "axios";
+import { useRoute } from "vue-router";
 
 export default {
   props: {},
@@ -97,18 +98,20 @@ export default {
   },
   setup() {
     //return data methods and props
-    const characterId = ref(11);
     const character = reactive({
       data: {},
       loading: false,
+      id: 0,
     });
+
+    //const router = useRouter();
+    const route = useRoute();
 
     function getCharacterDetailFromApi() {
       character.loading = true;
       axios
-        .get(`https://swapi.dev/api/people/${characterId.value}/`)
+        .get(`https://swapi.dev/api/people/${character.id}/`)
         .then((response) => {
-          console.log(response);
           character.data = response.data;
         })
         .finally(() => {
@@ -118,10 +121,11 @@ export default {
 
     /* OnMounted function */
     onMounted(() => {
+      character.id = route.params.id;
       getCharacterDetailFromApi();
     });
 
-    return { characterId, character };
+    return { character };
   },
 };
 </script>

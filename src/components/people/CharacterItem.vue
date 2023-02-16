@@ -1,9 +1,10 @@
 <template>
   <div class="sw_spacebtn">
-    <RouterLink to="/character/1" :class="'characterlink'">
+    <RouterLink :to="`/character/${characterId}`" :class="'characterlink'">
       <div class="btn_container">
         <div class="btn">
-          {{ name }}
+          {{ character.name }}
+          {{ characterId }}
           <span
             ><svg
               width="16"
@@ -39,17 +40,27 @@
 </template>
 
 <script>
+import { computed } from "vue";
 export default {
   props: {
-    name: String,
-    id: [Number, String],
+    character: {
+      type: Object,
+      // Object or array defaults must be returned from
+      // a factory function. The function receives the raw
+      // props received by the component as the argument.
+    },
     hasImage: { type: Boolean, required: true, default: false },
-    price: { type: Number, required: true },
-    pricer: { type: Number, required: true },
   },
-  setup() {
+  setup(props) {
     //return data methods and props
-    return {};
+
+    const characterId = computed(() => {
+      var parts = props.character.url.split("/");
+      var lastSegment = parts.pop() || parts.pop(); // handle potential trailing slash
+      return lastSegment;
+    });
+
+    return { characterId };
   },
 };
 </script>

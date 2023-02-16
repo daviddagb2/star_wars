@@ -2,8 +2,18 @@
   <div class="sw_characters_container">
     <div class="container">
       <div class="row">
-        <div class="title">
-          <h1>Star wars characters</h1>
+        <div class="col-md-6">
+          <div class="title">
+            <h1>Star wars characters</h1>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <PaginatorComp
+            :total="characters.count"
+            :current="characters.page"
+            @goToPage="goToPage"
+          ></PaginatorComp>
         </div>
       </div>
 
@@ -14,20 +24,12 @@
           v-for="(value, key) in characters.list"
           :key="key"
         >
-          <CharacterItem
-            :name="value.name"
-            :has-image="false"
-            :id="1"
-            :price="200"
-            :pricer="200"
-          />
+          <CharacterItem :character="value" :has-image="false" />
         </div>
       </div>
 
       <div class="row">
-        <div class="col align-self-center">
-          <PaginatorComp :total="characters.count"></PaginatorComp>
-        </div>
+        <div class="col align-self-center"></div>
       </div>
     </div>
   </div>
@@ -88,12 +90,17 @@ export default {
       getDataFromAPI(characters.page);
     };
 
+    const goToPage = (page) => {
+      characters.page = page;
+      getDataFromAPI(characters.page);
+    };
+
     /* OnMounted function */
     onMounted(() => {
       getDataFromAPI(characters.page);
     });
 
-    return { characters, nexPage, prevPage };
+    return { characters, nexPage, prevPage, goToPage };
   },
 };
 </script>
