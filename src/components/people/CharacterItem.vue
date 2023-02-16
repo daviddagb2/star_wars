@@ -4,7 +4,6 @@
       <div class="btn_container">
         <div class="btn">
           {{ character.name }}
-          {{ characterId }}
           <span
             ><svg
               width="16"
