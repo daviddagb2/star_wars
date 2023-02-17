@@ -20,6 +20,7 @@
         class="collapse navbar-collapse justify-content-between align-items-center w-100"
         id="navbarSupportedContent"
       >
+        <div class="fixed_option_nav"></div>
         <ul class="navbar-nav mx-auto text-md-center text-left">
           <li class="nav-item">
             <RouterLink to="/" :class="'nav-link'">Home</RouterLink>
@@ -36,7 +37,10 @@
             <RouterLink to="/about" :class="'nav-link'">About</RouterLink>
           </li>
         </ul>
-        <SearchTool @gotosearch="gotosearch"></SearchTool>
+
+        <div class="fixed_option_nav">
+          <SearchTool @gotosearch="gotosearch"></SearchTool>
+        </div>
       </div>
     </div>
   </nav>
@@ -62,3 +66,10 @@ export default {
   },
 };
 </script>
+
+<style>
+.fixed_option_nav {
+  min-width: 250px;
+  display: block;
+}
+</style>
