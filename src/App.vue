@@ -1,7 +1,19 @@
 <script setup>
-import { RouterView } from "vue-router";
+import { RouterView, useRouter } from "vue-router";
 import NavMenu from "./components/Common/NavMenu.vue";
 import FooterComponent from "./components/Common/Footer.vue";
+
+const routerUse = useRouter();
+
+function gotosearch(value) {
+  console.log(value);
+  routerUse.push({
+    name: "character",
+    query: {
+      name: value,
+    },
+  });
+}
 </script>
 
 <template>
@@ -9,7 +21,7 @@ import FooterComponent from "./components/Common/Footer.vue";
     <div class="logo"></div>
 
     <div class="wrapper">
-      <NavMenu></NavMenu>
+      <NavMenu @gotosearch="gotosearch"></NavMenu>
     </div>
   </header>
 

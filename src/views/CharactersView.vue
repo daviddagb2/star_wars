@@ -39,8 +39,8 @@
 import HudLoaderAnim from "../components/utils/HudLoaderAnim.vue";
 import CharacterItem from "../components/people/CharacterItem.vue";
 import PaginatorComp from "../components/utils/PaginatorComp.vue";
-
-import { onMounted, reactive } from "vue";
+import { useRoute } from "vue-router"; //
+import { onMounted, reactive, ref, watch } from "vue";
 import axios from "axios";
 
 export default {
@@ -60,10 +60,47 @@ export default {
       maxpages: 5,
     });
 
+    const route = useRoute();
+    const searchValue = ref("");
+
+    function searchDataFromAPI(value) {
+      searchValue.value = value;
+      characters.loading = true;
+
+      var params = new URLSearchParams([
+        //  ["page", 0],
+        ["search", value],
+      ]);
+      axios
+        .get(`https://swapi.dev/api/people/`, { params })
+        .then((response) => {
+          characters.list = response.data.results;
+          characters.count = response.data.count;
+          characters.maxpages = Math.ceil(characters.count / 10);
+        })
+        .finally(() => {
+          characters.loading = false;
+        });
+    }
+
+    // Ejecuta la función cuando cambia la variable reactiva productPrice.
+    // La función callback puede obtener el valor actual (current) y anterior (prev).
+    watch(route, (current, prev) => {
+      console.log(`watch => current: ${current} prev: ${prev}`);
+      let searchValue = route.query.name;
+      if (searchValue) {
+        if (searchValue.length > 0) {
+          searchDataFromAPI(searchValue);
+        } else {
+          characters.page = 1;
+          getDataFromAPI(0);
+        }
+      }
+    });
+
     //Methods
     function getDataFromAPI(page) {
       characters.loading = true;
-      console.log("get data");
       var params = new URLSearchParams([["page", page]]);
       axios
         .get(`https://swapi.dev/api/people/`, { params })
@@ -97,10 +134,22 @@ export default {
 
     /* OnMounted function */
     onMounted(() => {
-      getDataFromAPI(characters.page);
+      let searchValue = route.query.name;
+      if (searchValue) {
+        searchDataFromAPI(searchValue);
+      } else {
+        getDataFromAPI(characters.page);
+      }
     });
 
-    return { characters, nexPage, prevPage, goToPage };
+    return {
+      characters,
+      nexPage,
+      prevPage,
+      goToPage,
+      searchValue,
+      searchDataFromAPI,
+    };
   },
 };
 </script>

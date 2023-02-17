@@ -25,6 +25,33 @@
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+
+  nav {
+    li {
+      span {
+        background-color: white;
+        color: black;
+        cursor: pointer;
+      }
+
+      span:hover {
+        color: rgb(92, 141, 255);
+      }
+
+      span.page-link.active {
+        color: white;
+        background-color: black;
+        font-weight: bold;
+        border: 1px solid rgb(110, 110, 110);
+      }
+    }
+
+    li.page-item {
+      a {
+        color: black;
+      }
+    }
+  }
 }
 </style>
 

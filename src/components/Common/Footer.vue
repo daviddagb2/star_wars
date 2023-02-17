@@ -3,19 +3,24 @@
     <footer class="py-3 my-4">
       <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-muted">Home</a>
+          <RouterLink to="/" :class="'nav-link px-2 text-muted'"
+            >Home</RouterLink
+          >
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-muted">Features</a>
+          <RouterLink to="/character" :class="'nav-link px-2 text-muted'"
+            >Characters</RouterLink
+          >
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-muted">Pricing</a>
+          <RouterLink to="/films" :class="'nav-link px-2 text-muted'"
+            >Films</RouterLink
+          >
         </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-muted">FAQs</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link px-2 text-muted">About</a>
+        <li class="nav-item my-auto">
+          <RouterLink to="/about" :class="'nav-link px-2 text-muted'"
+            >About</RouterLink
+          >
         </li>
       </ul>
       <p class="text-center text-muted">© 2023 Gonzalez Blanchard</p>

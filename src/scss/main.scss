@@ -133,6 +133,43 @@ nav.navbar{
 }
 
 
+.sw_not_found_page {
+  min-width: 300px;
+  width: 100%;
+  position: relative;
+  min-height: 500px;
+  margin-top: 5em;
+
+  .star {
+    background-image: url("/src/assets/deathstar.png");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 300px;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .notfound{
+    font-family: $font-main;
+    width: 100%;
+    text-align: center;
+    font-size: 5em;
+    color: white;
+  }
+
+  .contentmsg {
+    font-family: $font-oswald;
+    text-transform: uppercase;
+    font-size: 2em;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+  }
+}
+
 
 .sw_spacebtn {
     display: flex;

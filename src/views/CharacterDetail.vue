@@ -68,6 +68,15 @@
                   </tr>
 
                   <tr class="table-dark">
+                    <td>Last edition</td>
+                    <td>
+                      <span class="tbinfo">
+                        {{ convertedDateTime }}
+                      </span>
+                    </td>
+                  </tr>
+
+                  <tr class="table-dark">
                     <td>Homeworld</td>
                     <td>
                       <span class="tbinfo">
@@ -87,9 +96,10 @@
 
 <script>
 import PreloaderAnim from "../components/utils/PreloaderAnim.vue";
-import { onMounted, reactive } from "vue";
+import { onMounted, reactive, computed } from "vue";
 import axios from "axios";
 import { useRoute } from "vue-router";
+import moment from "moment";
 
 export default {
   props: {},
@@ -104,7 +114,6 @@ export default {
       id: 0,
     });
 
-    //const router = useRouter();
     const route = useRoute();
 
     function getCharacterDetailFromApi() {
@@ -119,13 +128,17 @@ export default {
         });
     }
 
+    const convertedDateTime = computed(() => {
+      return moment(character.edited).format("MM/DD/YYYY HH:MM");
+    });
+
     /* OnMounted function */
     onMounted(() => {
       character.id = route.params.id;
       getCharacterDetailFromApi();
     });
 
-    return { character };
+    return { character, convertedDateTime };
   },
 };
 </script>
