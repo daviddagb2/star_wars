@@ -1,6 +1,7 @@
 <template>
   <div class="sw_poster">
-    <RouterLink :to="`/planets/${planetId}`" :class="'planetlink'">
+    <!-- <RouterLink :to="`/planets/${planetId}`" :class="'planetlink'">-->
+    <a href="#">
       <div class="card">
         <div :class="'planetposter planet' + planetId"></div>
         <div class="card-body">
@@ -9,7 +10,8 @@
           <p class="card-text">Population: {{ planet.population }}</p>
         </div>
       </div>
-    </RouterLink>
+    </a>
+    <!-- </RouterLink>-->
   </div>
 </template>
 
