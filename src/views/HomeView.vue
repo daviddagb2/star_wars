@@ -10,21 +10,21 @@ import MainMenuItem from "../components/utils/MainMenuItem.vue";
           <MainMenuItem
             :url="'/character'"
             :title="'Characters'"
-            :image="'/src/assets/characters.webp'"
+            :image="'./characters.webp'"
           ></MainMenuItem>
         </div>
         <div class="col">
           <MainMenuItem
             :url="'/films'"
             :title="'Films'"
-            :image="'/src/assets/movies.jpeg'"
+            :image="'./movies.jpeg'"
           ></MainMenuItem>
         </div>
         <div class="col">
           <MainMenuItem
             :url="'/planets'"
             :title="'Planets'"
-            :image="'/src/assets/coruscant.jpeg'"
+            :image="'./coruscant.jpeg'"
           ></MainMenuItem>
         </div>
       </div>
