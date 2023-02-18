@@ -64,24 +64,32 @@ nav.navbar{
     }
 }
 
-/*
-.sw_character{
-    margin-bottom: 2em;
-    .card-text{
-        font-family: $font-main;
-        font-weight: 400;
-        text-align: justify;
-    }
+.sw_intro {
 
-    .characterlink {
-        color: black;
+
+}
+
+
+.sw_home_container{
+  padding-top: 3em;
+  padding-bottom: 3em;
+
+  .sw_menu_item{
+    .card{
+      a{
         text-decoration: none;
+        color: black;
         text-align: center;
+        font-family: $font-oswald;
+        text-transform: uppercase;
+      }
+
+      img{
+        width: 100%;
+      }
     }
-}*/
-
-
-
+  }
+}
 
 .sw_character_detail{
     background-image: url('/src/assets/fog.jpg');
@@ -132,6 +140,10 @@ nav.navbar{
     }
 }
 
+.about{
+  
+}
+
 
 .sw_not_found_page {
   min-width: 300px;
@@ -139,9 +151,20 @@ nav.navbar{
   position: relative;
   min-height: 500px;
   margin-top: 5em;
+  background-color: #00000045;
 
   .star {
     background-image: url("/src/assets/deathstar.png");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-height: 300px;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .order {
+    background-image: url("/src/assets/sidious.png");
     background-position: center top;
     background-repeat: no-repeat;
     background-size: contain;

@@ -29,7 +29,9 @@
       </div>
 
       <div class="row">
-        <div class="col align-self-center"></div>
+        <div class="col align-self-center">
+          <EmptyView v-if="characters.list.length <= 0"></EmptyView>
+        </div>
       </div>
     </div>
   </div>
@@ -39,6 +41,7 @@
 import HudLoaderAnim from "../components/utils/HudLoaderAnim.vue";
 import CharacterItem from "../components/people/CharacterItem.vue";
 import PaginatorComp from "../components/utils/PaginatorComp.vue";
+import EmptyView from "../components/Common/EmptyView.vue";
 import { useRoute } from "vue-router"; //
 import { onMounted, reactive, ref, watch } from "vue";
 import axios from "axios";
@@ -49,6 +52,7 @@ export default {
     HudLoaderAnim,
     CharacterItem,
     PaginatorComp,
+    EmptyView,
   },
   setup() {
     //return data methods and props

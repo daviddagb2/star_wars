@@ -33,6 +33,9 @@
           <li class="nav-item">
             <RouterLink to="/films" :class="'nav-link'">Films</RouterLink>
           </li>
+          <li class="nav-item">
+            <RouterLink to="/planets" :class="'nav-link'">Planets</RouterLink>
+          </li>
           <li class="nav-item my-auto">
             <RouterLink to="/about" :class="'nav-link'">About</RouterLink>
           </li>

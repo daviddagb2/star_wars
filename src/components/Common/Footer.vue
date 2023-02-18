@@ -17,6 +17,11 @@
             >Films</RouterLink
           >
         </li>
+        <li class="nav-item">
+          <RouterLink to="/planets" :class="'nav-link px-2 text-muted'"
+            >Planets</RouterLink
+          >
+        </li>
         <li class="nav-item my-auto">
           <RouterLink to="/about" :class="'nav-link px-2 text-muted'"
             >About</RouterLink

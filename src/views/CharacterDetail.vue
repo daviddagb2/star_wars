@@ -6,16 +6,16 @@
           <PreloaderAnim></PreloaderAnim>
         </div>
 
-        <div class="row" v-if="!character.loading">
+        <div class="row" v-if="!character.loading && !character.error">
           <h2>{{ character.data.name }}</h2>
         </div>
 
-        <div class="row" v-if="!character.loading">
+        <div class="row" v-if="!character.loading && !character.error">
           <div class="col-4">
             <div class="hud_ui"></div>
           </div>
 
-          <div class="col">
+          <div class="col" v-if="!character.error">
             <div class="content_info">
               <div class="col">
                 <table class="table table-hover">
@@ -89,6 +89,12 @@
             </div>
           </div>
         </div>
+
+        <div class="row" v-if="character.error">
+          <div class="col">
+            <NotFound></NotFound>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -96,6 +102,7 @@
 
 <script>
 import PreloaderAnim from "../components/utils/PreloaderAnim.vue";
+import NotFound from "../components/Common/NotFound.vue";
 import { onMounted, reactive, computed } from "vue";
 import axios from "axios";
 import { useRoute } from "vue-router";
@@ -105,6 +112,7 @@ export default {
   props: {},
   components: {
     PreloaderAnim,
+    NotFound,
   },
   setup() {
     //return data methods and props
@@ -112,6 +120,7 @@ export default {
       data: {},
       loading: false,
       id: 0,
+      error: false,
     });
 
     const route = useRoute();
@@ -122,6 +131,11 @@ export default {
         .get(`https://swapi.dev/api/people/${character.id}/`)
         .then((response) => {
           character.data = response.data;
+        })
+        .catch(function (error) {
+          if (error.response) {
+            character.error = true;
+          }
         })
         .finally(() => {
           character.loading = false;

@@ -4,6 +4,7 @@ import CharactersView from "../views/CharactersView.vue";
 import CharacterDetailView from "../views/CharacterDetail.vue";
 import FilmsView from "../views/FilmsView.vue";
 import FilmDetailView from "../views/FilmDetail.vue";
+import PlanetsView from "../views/PlanetsView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,6 +18,11 @@ const router = createRouter({
       path: "/character",
       name: "character",
       component: CharactersView,
+    },
+    {
+      path: "/planets",
+      name: "planets",
+      component: PlanetsView,
     },
     {
       path: "/films",

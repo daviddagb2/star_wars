@@ -155,6 +155,8 @@
   text-overflow: ellipsis;
   position: relative;
 
+  background-position: top;
+  background-size: contain;
   .star {
     position: absolute;
     width: 1px;
